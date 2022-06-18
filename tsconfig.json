@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "lib": ["es2018", "DOM"],
+    "module": "commonjs",
+    "target": "es2018",
+    "moduleResolution": "node",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "declaration": true,
+    "sourceMap": false,
+    "declarationMap": false,
+    "strict": false,
+    "noImplicitAny": true,
+    "strictNullChecks": false,
+    "strictFunctionTypes": true,
+    "noImplicitThis": true,
+    "alwaysStrict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "esModuleInterop": true,
+    "removeComments": false
+  },
+  "exclude": ["node_modules", "dist", "**/*.test.ts"]
+}
