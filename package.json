@@ -1,0 +1,60 @@
+{
+  "name": "root",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "clean": "scripty",
+    "build": "scripty",
+    "test": "scripty",
+    "up": "scripty",
+    "lerna-version": "scripty",
+    "lerna-publish": "scripty",
+    "watch": "scripty",
+    "test-watch": "scripty",
+    "test-commit": "scripty",
+    "prepare": "scripty",
+    "commit": "scripty",
+    "lint": "scripty",
+    "lint:fix": "eslint . --ext .js,.ts --fix",
+    "format": "prettier --write \"./**/*.{ts,js,json,md}\""
+  },
+  "scripty": {
+    "path": "./scripts/workspace"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.18.5",
+    "@babel/preset-env": "^7.16.11",
+    "@babel/preset-typescript": "^7.16.7",
+    "@commitlint/cli": "^17.0.2",
+    "@commitlint/config-conventional": "^17.0.2",
+    "@types/jest": "^28.1.2",
+    "@types/node": "^18.0.0",
+    "@typescript-eslint/eslint-plugin": "^5.28.0",
+    "@typescript-eslint/parser": "^5.28.0",
+    "jest-environment-jsdom":"^28.1.1",
+    "babel-jest": "^28.1.1",
+    "commitizen": "^4.2.4",
+    "cz-conventional-changelog": "3.3.0",
+    "eslint": "^8.18.0",
+    "husky": "^8.0.1",
+    "jest": "^28.1.1",
+    "jsdom": "^19.0.0",
+    "lerna": "^5.1.4",
+    "prettier": "^2.7.1",
+    "rimraf": "^3.0.2",
+    "scripty": "^2.0.0",
+    "ts-jest": "^28.0.5",
+    "typescript": "^4.7.4"
+  },
+  "dependencies": {
+    "global": "^4.4.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "version": "0.0.0"
+}

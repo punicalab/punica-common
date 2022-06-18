@@ -1,0 +1,35 @@
+{
+  "name": "@punica/converter",
+  "version": "1.0.0",
+  "description": "Converter",
+  "author": {
+    "name": "Uryan Sezgin TEKE",
+    "email": "uryan.sezgin.teke@gmail.com",
+    "url": "https://github.com/uryansezginteke"
+  },
+  "private": false,
+  "license": "MIT",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "url": "git@github.com:uryansezginteke/punica-common.git"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "scripty",
+    "clean": "scripty",
+    "lint": "scripty",
+    "compile": "scripty"
+  },
+  "devDependencies": {
+    "@punica/common": "^1.0.0"
+  },
+  "scripty": {
+    "path": "../../scripts/packages"
+  }
+}
