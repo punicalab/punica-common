@@ -26,9 +26,6 @@
     "lint": "scripty",
     "compile": "scripty"
   },
-  "devDependencies": {
-    "@punica/common": "^1.0.0"
-  },
   "scripty": {
     "path": "../../scripts/packages"
   }
