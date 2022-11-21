@@ -1,4 +1,4 @@
-export abstract class BaseListener {
+export abstract class BaseListener<T> {
   private listeners;
 
   /**
@@ -13,7 +13,7 @@ export abstract class BaseListener {
    * @param label
    * @param callback
    */
-  on(label: string, callback: (data: unknown) => void) {
+  on(label: T, callback: EventHandler) {
     this.listeners.has(label) || this.listeners.set(label, []);
     this.listeners.get(label).push(callback);
   }
@@ -23,12 +23,12 @@ export abstract class BaseListener {
    * @param label
    * @param callback
    */
-  off(label: string, callback: (data: unknown) => void) {
+  off(label: T, callback: EventHandler) {
     const listeners = this.listeners.get(label);
 
     this.listeners.set(
       label,
-      listeners.filter((c: (data: unknown) => void) => {
+      listeners.filter((c: EventHandler) => {
         return c != callback;
       })
     );
@@ -39,13 +39,15 @@ export abstract class BaseListener {
    * @param label
    * @param data
    */
-  trigger(label: string, data: unknown) {
+  trigger(label: T, data: unknown) {
     const listeners = this.listeners.get(label);
 
     if (listeners) {
-      listeners.forEach((callback: (data: unknown) => void) => {
+      listeners.forEach((callback: EventHandler) => {
         callback(data);
       });
     }
   }
 }
+
+export type EventHandler<TData = unknown> = (data: TData) => void;
