@@ -1,4 +1,4 @@
-import { MergeObject, ReadPropertyPath, WriteToPropertyPath } from '..';
+import { mergeObject, readPropertyPath, writeToPropertyPath } from '..';
 
 describe('json', () => {
   test('must merge objects correctly when the keys are array', () => {
@@ -10,7 +10,7 @@ describe('json', () => {
       foo: ['5', '6'],
       bar: ['7', '8']
     };
-    expect(MergeObject(obj1, obj2)).toEqual(
+    expect(mergeObject(obj1, obj2)).toEqual(
       JSON.parse('{"bar": ["3", "4", "7", "8"], "foo": ["1", "2", "5", "6"]}')
     );
   });
@@ -18,7 +18,7 @@ describe('json', () => {
   test('must merge objects correctly when they are array object', () => {
     const obj1: any = [{ foo: 'bar' }, { bas: 'baz' }];
     const obj2: any = [{ lorem: 'ipsum' }, { dolor: 'sit' }];
-    expect(MergeObject(obj1, obj2)).toEqual(
+    expect(mergeObject(obj1, obj2)).toEqual(
       JSON.parse(
         '[{"foo": "bar", "lorem": "ipsum"}, {"bas": "baz", "dolor": "sit"}]'
       )
@@ -28,7 +28,7 @@ describe('json', () => {
   test('must merge objects correctly when they are pure object', () => {
     const obj1 = { foo: 'bar' };
     const obj2 = { lorem: 'ipsum' };
-    expect(MergeObject(obj1, obj2)).toEqual(
+    expect(mergeObject(obj1, obj2)).toEqual(
       JSON.parse('{"foo": "bar", "lorem": "ipsum"}')
     );
   });
@@ -44,13 +44,13 @@ describe('json', () => {
       }
     };
     expect(
-      ReadPropertyPath({ testObj }, 'testObj/userInfo/address/city')
+      readPropertyPath({ testObj }, 'testObj/userInfo/address/city')
     ).toEqual('Istanbul');
     expect(
-      ReadPropertyPath({ testObj }, 'testObj/userInfo/address/district')
+      readPropertyPath({ testObj }, 'testObj/userInfo/address/district')
     ).toEqual('Uskudar');
     expect(
-      ReadPropertyPath({ testObj }, 'testObj/userInfo/address/street')
+      readPropertyPath({ testObj }, 'testObj/userInfo/address/street')
     ).toEqual('Selimiye');
   });
 
@@ -65,26 +65,26 @@ describe('json', () => {
       }
     };
 
-    WriteToPropertyPath({ testObj }, 'testObj/userInfo/address/city', 'Ankara');
-    WriteToPropertyPath(
+    writeToPropertyPath({ testObj }, 'testObj/userInfo/address/city', 'Ankara');
+    writeToPropertyPath(
       { testObj },
       'testObj/userInfo/address/district',
       'Kızılay'
     );
-    WriteToPropertyPath(
+    writeToPropertyPath(
       { testObj },
       'testObj/userInfo/address/street',
       'Sakarya'
     );
 
     expect(
-      ReadPropertyPath({ testObj }, 'testObj/userInfo/address/city')
+      readPropertyPath({ testObj }, 'testObj/userInfo/address/city')
     ).toEqual('Ankara');
     expect(
-      ReadPropertyPath({ testObj }, 'testObj/userInfo/address/district')
+      readPropertyPath({ testObj }, 'testObj/userInfo/address/district')
     ).toEqual('Kızılay');
     expect(
-      ReadPropertyPath({ testObj }, 'testObj/userInfo/address/street')
+      readPropertyPath({ testObj }, 'testObj/userInfo/address/street')
     ).toEqual('Sakarya');
   });
 });

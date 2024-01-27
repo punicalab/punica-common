@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
-echo "┏━━━ 📦 Packages are compiling"
+echo "┏━━━ 📦 Packages are compiling "
 tsc

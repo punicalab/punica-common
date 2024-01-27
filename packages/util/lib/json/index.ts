@@ -1,3 +1,3 @@
-export * from './MergeObject';
-export * from './ReadPropertyPath';
-export * from './WriteToPropertyPath';
+export * from './merge';
+export * from './readProperty';
+export * from './writeToProperty';

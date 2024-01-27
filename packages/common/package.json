@@ -5,7 +5,7 @@
   "author": {
     "name": "Uryan Sezgin TEKE",
     "email": "uryan.sezgin.teke@gmail.com",
-    "url": "https://github.com/uryansezginteke"
+    "url": "https://github.com/punicalab"
   },
   "private": false,
   "license": "MIT",
@@ -22,7 +22,7 @@
     "access": "public"
   },
   "repository": {
-    "url": "git@github.com:uryansezginteke/punica-common.git"
+    "url": "git@github.com:punicalab/punica-common.git"
   },
   "files": [
     "dist"
