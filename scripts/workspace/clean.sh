@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
-echo "┏━━━ 📦 Cleaning Workspace"
+echo "┏━━━ 📦 Workspace cleaning "
 lerna run clean

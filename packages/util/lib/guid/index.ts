@@ -1,5 +1,4 @@
-export const GUID = (): IGUID => {
-    return {
+export const GUID: IGUID =  {
       uuid: (): string => {
         return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(
           /[xy]/g,
@@ -11,7 +10,6 @@ export const GUID = (): IGUID => {
           }
         );
       }
-    };
   };
   
   export interface IGUID {

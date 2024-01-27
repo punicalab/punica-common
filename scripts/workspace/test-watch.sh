@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
-echo "┏━━━ 📦 Packages' test cases watching"
+echo "┏━━━ 📦 Testing Workspace "
 jest --watch

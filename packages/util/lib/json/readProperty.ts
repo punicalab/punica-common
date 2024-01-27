@@ -3,7 +3,7 @@
  * @param entity
  * @param pathString
  */
-export const ReadPropertyPath = (
+export const readPropertyPath = (
   entity: { [key: string]: any },
   propertyPath: string
 ) => {

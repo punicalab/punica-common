@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "lib": ["es2018", "DOM"],
+    "lib": ["es2018", "es2019"],
     "module": "commonjs",
     "target": "es2018",
     "moduleResolution": "node",
@@ -9,7 +9,8 @@
     "declaration": true,
     "sourceMap": false,
     "declarationMap": false,
-    "strict": false,
+    "removeComments": false,
+    "strict": true,
     "noImplicitAny": true,
     "strictNullChecks": false,
     "strictFunctionTypes": true,
@@ -19,8 +20,13 @@
     "noUnusedParameters": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
-    "esModuleInterop": true,
-    "removeComments": false
+    "esModuleInterop": true
   },
-  "exclude": ["node_modules", "dist", "**/*.test.ts"]
+  "exclude": [
+    "node_modules",
+    "dist",
+    "**/*/__test__",
+    "**/*/__mocks__/*",
+    "**/*/__example__"
+  ]
 }

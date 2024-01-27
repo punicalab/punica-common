@@ -4,7 +4,7 @@
  * @param pathString
  * @param value
  */
-export const WriteToPropertyPath = (
+export const writeToPropertyPath = (
   entity: { [key: string]: any },
   pathString: string,
   value: any

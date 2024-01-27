@@ -1,3 +1,3 @@
-export * from './SetCookie';
-export * from './GetCookie';
-export * from './DeleteCookie';
+export * from './set';
+export * from './get';
+export * from './delete';
