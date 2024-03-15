@@ -1,4 +1,4 @@
-import { IValidator } from '../IValidator';
+import { IValidator } from '..';
 
 /**
  * Validates if a string represents a valid IP address.
