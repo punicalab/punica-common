@@ -1,3 +1,5 @@
+import { IValidator } from '..';
+
 /**
  * Validates if a string contains only numeric characters.
  * @param {string} data - The string to be validated.
@@ -16,7 +18,9 @@
  * // returns true
  * validateOnlyNumber('0.123');
  */
-export const validateOnlyNumber = (data: string): boolean => {
+export const validateOnlyNumber: IValidator<string> = (
+  data: string
+): boolean => {
   const numericRegex = /^[+-]?([0-9]*[.])?[0-9]+$/;
   return numericRegex.test(data);
 };

@@ -1,4 +1,4 @@
-import { IValidator } from '../..';
+import { IValidator } from '..';
 
 /**
  *

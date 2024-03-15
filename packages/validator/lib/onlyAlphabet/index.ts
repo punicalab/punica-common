@@ -1,4 +1,4 @@
-import { IValidator } from '../IValidator';
+import { IValidator } from '..';
 
 /**
  * Validates if a string contains only alphabet characters.
