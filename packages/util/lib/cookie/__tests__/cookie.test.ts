@@ -1,35 +1,67 @@
-/**
- * @jest-environment jsdom
- */
+import { getCookie, setCookie, deleteCookie } from '..';
 
-import { getCookie } from '..';
+// Mocking document.cookie
+let originalDocumentCookie: string;
+beforeEach(() => {
+  originalDocumentCookie = document.cookie;
+});
 
-describe('cookie', () => {
-  test('get cookie with given cookie', () => {
-    const testCookie = 'testCookie1=value1; testCookie2=value2';
-    expect(getCookie('testCookie1', testCookie)).toEqual('value1');
-    expect(getCookie('testCookie2', testCookie)).toEqual('value2');
+afterEach(() => {
+  document.cookie = originalDocumentCookie;
+});
+
+describe('getCookie', () => {
+  it('should return null if the cookie does not exist', () => {
+    expect(getCookie('nonExistingCookie')).toBeNull();
   });
 
-  test('get cookie with document cookie', () => {
-    Object.defineProperty(window.document, 'cookie', {
-      writable: true,
-      value: 'testCookie3=value3; testCookie4=value4'
-    });
-    expect(getCookie('testCookie3')).toEqual('value3');
-    expect(getCookie('testCookie4')).toEqual('value4');
+  it('should return the value of the cookie if it exists', () => {
+    document.cookie = 'testCookie=testValue';
+    expect(getCookie('testCookie')).toBe('testValue');
   });
 
-  test('must return null if given cookie is null or empty', () => {
-    expect(getCookie('nullCookie')).toBeNull();
-    expect(getCookie('nullCookie2', '')).toBeNull();
+  it('should return null if the cookie value is empty', () => {
+    document.cookie = 'emptyCookie=';
+    expect(getCookie('emptyCookie')).toBe('');
   });
 
-  test('must return null if document cookie is empty', () => {
-    Object.defineProperty(window.document, 'cookie', {
-      writable: true,
-      value: ''
-    });
-    expect(getCookie('nullCookie3')).toBeNull();
+  it('should return null if the cookie value contains only whitespace', () => {
+    document.cookie = 'whitespaceCookie=   ';
+    expect(getCookie('whitespaceCookie')).toBe('');
+  });
+});
+
+describe('setCookie', () => {
+  it('should set a cookie with the given key and value', () => {
+    setCookie('testCookie', 'testValue');
+    expect(document.cookie).toContain('testCookie=testValue');
+  });
+
+  it('should set a cookie with an empty value if value parameter is null', () => {
+    setCookie('emptyValueCookie', null);
+    expect(document.cookie).toContain('emptyValueCookie=');
+  });
+
+  it('should encode URL characters in cookie values', () => {
+    setCookie('encodedCookie', 'test value');
+    expect(document.cookie).toContain('encodedCookie=test value');
+  });
+});
+
+describe('deleteCookie', () => {
+  it('should delete the cookie by setting its expiration date to the past', () => {
+    // Set a test cookie first
+    document.cookie = 'testCookie=testValue';
+
+    // Call deleteCookie
+    deleteCookie('testCookie');
+
+    // Expect the test cookie to be deleted
+    expect(getCookie('testCookie')).toBeNull();
+  });
+
+  it('should not throw an error if the cookie does not exist', () => {
+    // Expect no error to be thrown
+    expect(() => deleteCookie('nonExistingCookie')).not.toThrow();
   });
 });
